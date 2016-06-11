@@ -1,0 +1,52 @@
+#!/bin/bash
+# chkconfig: 2345 95 20
+# description: unifi system
+# processname: unifi
+
+ctrl_start()
+{
+  java -jar /opt/UniFi/lib/ace.jar start &
+}
+
+ctrl_stop()
+{
+  java -jar /opt/UniFi/lib/ace.jar stop &
+}
+
+ctrl_restart()
+{
+  ctrl_stop
+  sleep 1
+  ctrl_start
+}
+
+case "$1" in
+
+start)
+
+  echo -n "starting unifi system"
+  ctrl_start
+  echo " service started"
+  ;;
+
+stop)
+
+  echo -n "stopping unifi system"
+  ctrl_stop
+  echo " service stopped"
+  ;;
+
+restart)
+
+  echo -n "restarting unifi system"
+  ctrl_restart
+  echo "service restarted"
+  ;;
+
+*)
+
+echo "usage: service unifi {start|stop|restart}"
+;;
+
+esac
+exit 0
