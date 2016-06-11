@@ -11,7 +11,7 @@ At this moment, only DIY package is supported.
 
 ## Supported Platforms
 
-* CentOs 6 (SELinux must be disabled)
+[//]: <>(* CentOs 6 (SELinux must be disabled)
 * CentOS 7 (SELinux must be disabled)
 
 ## Attributes
